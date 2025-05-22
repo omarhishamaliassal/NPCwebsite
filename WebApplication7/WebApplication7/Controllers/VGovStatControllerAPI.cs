@@ -14,10 +14,25 @@ public class VGovStatControllerAPI : ControllerBase
         _context = context;
     }
 
+  
     [HttpGet]
     public async Task<ActionResult<IEnumerable<VGovStatAPI>>> GetVGovStats()
     {
         var stats = await _context.VGovStat.ToListAsync();
         return Ok(stats);
+    }
+
+  
+    [HttpGet("GetById")]
+    public async Task<ActionResult<VGovStatAPI>> GetById([FromQuery] decimal id)
+    {
+        var stat = await _context.VGovStat.FirstOrDefaultAsync(v => v.GovId == id);
+
+        if (stat == null)
+        {
+            return NotFound(new { message = "Record not found." });
+        }
+
+        return Ok(stat);
     }
 }
