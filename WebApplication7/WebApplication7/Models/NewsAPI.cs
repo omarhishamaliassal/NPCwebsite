@@ -1,8 +1,11 @@
-﻿namespace WebApplication7.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace WebApplication7.Models
 {
     public class NewsAPI
     {
-        public int Id { get; set; }
+       
+        [Key]
+        public decimal NewsId { get; set; }
 
         public string? Title { get; set; }
         public string? NewsText { get; set; }

@@ -15,7 +15,7 @@ namespace WebApplication7.Models
 
         public string MinisterWord { get; set; }
         public string MinisterImg { get; set; }
-
+        public string? StructureText { get; set; }
         public string StructureImg { get; set; }
 
         public string Pillar1 { get; set; }
